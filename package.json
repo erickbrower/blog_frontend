@@ -1,0 +1,28 @@
+{
+  "name": "blog_frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "watchify -d main.js -o dist/bundle.js -v",
+    "build": "NODE_ENV=production browserify main.js | uglifyjs -cm > dist/bundle.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browserify": "^8.1.1",
+    "envify": "^3.2.0",
+    "reactify": "^1.0.0",
+    "watchify": "^2.2.1"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "reactify", {
+          "es6": true
+        }
+      ],
+      "envify"
+    ]
+  }
+}
